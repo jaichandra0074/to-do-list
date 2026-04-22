@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>📊 Database View</h2>
+
+<table border="1" style="margin:auto; background:white;">
+    <tr>
+        <th>ID</th>
+        <th>Task</th>
+        <th>Action</th>
+    </tr>
+
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task[0] }}</td>
+        <td>{{ task[1] }}</td>
+        <td>
+            <a href="/delete/{{ task[0] }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">⬅ Back</a>
+{% endblock %}

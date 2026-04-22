@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="/database">📊 View Database</a>
+
+<form action="/add" method="POST">
+    <input type="text" name="content" placeholder="Enter task" required>
+    <button type="submit">Add Task</button>
+</form>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            {{ task[1] }}
+            <a href="/update/{{ task[0] }}">Edit</a>
+            <a href="/delete/{{ task[0] }}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
